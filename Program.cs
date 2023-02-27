@@ -16,15 +16,23 @@ if (resp == "1")
             if (File.Exists("movies.csv"))
             {
                 StreamReader sr = new StreamReader("movies.csv");
+                List<string> movies = new List<string>();
+                
                 while (!sr.EndOfStream)
                 {
-
+                    
                     string line = sr.ReadLine();
-                    string[] arr = line.Split(',');
-
-                    Console.WriteLine("{0}. {1}", arr);
+                    movies.Add(line);
 
                 }
+
+                foreach(string movie in movies)
+                {
+                    string[] arr =  movie.Split(",");
+                    Console.WriteLine("{0}. {1} {2}", arr[0], arr[1], arr[2]);
+                }
+
+
 
                 sr.Close();
 
@@ -32,13 +40,13 @@ if (resp == "1")
     }
 
 
-else if (resp == "2")
-{
-    Console.WriteLine("What is the name of the movie you wish to add?");
-                var newMovie = Console.ReadLine();
-                Console.WriteLine("What is the genre");
-                var newGenre = Console.ReadLine();
-            }
+    else if (resp == "2")
+    {
+        Console.WriteLine("What is the name of the movie you wish to add?");
+        var newMovie = Console.ReadLine();
+        Console.WriteLine("What is the year it was released?");
+        var newYear = Console.ReadLine();
+    }
 
 
 
